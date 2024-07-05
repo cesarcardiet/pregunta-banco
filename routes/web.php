@@ -1,7 +1,14 @@
 <?php
 
+
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+// Ruta para mostrar el formulario de registro
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+// Ruta para manejar el registro de estudiantes
+Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/', function () {
     return view('welcome');
